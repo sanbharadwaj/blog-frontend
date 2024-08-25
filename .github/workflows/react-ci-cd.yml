@@ -70,3 +70,7 @@ jobs:
         kubectl rollout status deployment/react-frontend -n blog
         kubectl get pods -n blog
         kubectl get services -n blog
+
+    - name: Apply Ingress Configuration
+      run: |
+        kubectl apply -f k8s/ingress.yaml
