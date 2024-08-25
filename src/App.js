@@ -1,21 +1,18 @@
-import './App.css';
-import React, { useState, useEffect } from 'react';
-import DataTable from './components/DataTable';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import DataTablePage from './components/DataTablePage';
 
 function App() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:8000/api/data/')
-      .then(response => response.json())
-      .then(data => setData(data));
-  }, []);
-
   return (
-    <div className="App">
-      <h1>Dummy Data Table</h1>
-      <DataTable data={data} />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/data" element={<DataTablePage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
