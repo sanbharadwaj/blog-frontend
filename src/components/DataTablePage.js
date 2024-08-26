@@ -7,7 +7,7 @@ const DataTablePage = () => {
   const [data, setData] = useState([]);
 
   const fetchData = () => {
-    fetch('http://localhost:8000/api/data/')
+    fetch('http://ac78537a5f6774f329848f16050bb0df-1700985619.ap-south-1.elb.amazonaws.com/api/data/')
       .then(response => response.json())
       .then(data => setData(data));
   };
@@ -17,7 +17,7 @@ const DataTablePage = () => {
   }, []);
 
   const handleSubmit = (formData) => {
-    fetch('http://localhost:8000/api/data/', {
+    fetch('http://ac78537a5f6774f329848f16050bb0df-1700985619.ap-south-1.elb.amazonaws.com/api/data/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
